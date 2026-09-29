@@ -1,0 +1,6 @@
+{
+  "name": "NEXORA AI — Consultoria & Soluções em Inteligência Artificial",
+  "description": "Consultoria, tecnologia e soluções de inteligência artificial para negócios preparados para o futuro. Transformamos ideias em soluções inteligentes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
