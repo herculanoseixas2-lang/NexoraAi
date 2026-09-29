@@ -124,8 +124,8 @@ export const IntroExperience: React.FC<IntroExperienceProps> = ({ onEnter }) => 
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-[#05040A] text-white transition-opacity duration-1000 ${
-        isActivating ? 'scale-105 pointer-events-none' : ''
+      className={`fixed inset-0 z-50 flex flex-col justify-between overflow-hidden bg-[#05040A] text-white transition-all duration-1000 ${
+        isActivating ? 'scale-105 opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
       {/* Background robot artwork with dark cinematic vignetting */}

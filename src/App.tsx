@@ -15,7 +15,13 @@ import { ParticleBackground } from './components/ParticleBackground';
 import { AdminPanel } from './components/AdminPanel';
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(false);
+  // Always open directly into the cinematic Intro experience when visiting the website
+  const [showIntro, setShowIntro] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && (window.location.hash === '#admin' || window.location.search.includes('admin=true'))) {
+      return false;
+    }
+    return true;
+  });
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [prefilledService, setPrefilledService] = useState<string | undefined>(undefined);
 
@@ -67,9 +73,14 @@ export default function App() {
       {/* Background Interactive Stardust & Node Canvas */}
       <ParticleBackground glowIntensity={0.35} />
 
-      {/* 1. Initial Entry Experience (Cinematic AI Intro on demand) */}
+      {/* 1. Initial Entry Experience (Cinematic AI Intro on link open) */}
       {showIntro && (
-        <IntroExperience onEnter={() => setShowIntro(false)} />
+        <IntroExperience
+          onEnter={() => {
+            setShowIntro(false);
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          }}
+        />
       )}
 
       {/* 2. Main Website Header */}
