@@ -3,7 +3,6 @@ import { IntroExperience } from './components/IntroExperience';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
-import { FeaturedSolutions } from './components/FeaturedSolutions';
 import { Services } from './components/Services';
 import { WebsiteShowcase } from './components/WebsiteShowcase';
 import { WhyNexora } from './components/WhyNexora';
@@ -104,10 +103,7 @@ export default function App() {
         {/* 4. Statistics with Live Reactive Counters */}
         <Stats />
 
-        {/* 5. Featured Solutions Carousel */}
-        <FeaturedSolutions onSelectSolution={(sol) => handleOpenContact(sol)} />
-
-        {/* 6. Interactive Service Grid (O Que Podemos Construir Juntos) */}
+        {/* 5. Interactive Service Grid (O Que Podemos Construir Juntos) */}
         <Services onSelectService={(srv) => handleOpenContact(srv)} />
 
         {/* 7. Website Development Showcase (3D Browser Mockup) */}

@@ -7,12 +7,12 @@ import {
   Workflow,
   Sparkles,
   Layers,
+  Palette,
 } from 'lucide-react';
 import { GlowLetters } from './GlowLetters';
-import neuralEngineImg from '../assets/images/ai_neural_engine_1790155475590.jpg';
 import appInterfaceImg from '../assets/images/app_ai_interface_1790155498715.jpg';
-import heroRobotImg from '../assets/images/hero_ai_humanoid_1790155453597.jpg';
-import visionFutureImg from '../assets/images/vision_smart_future_1790155487369.jpg';
+import aiAppsCollabImg from '../assets/images/ai_apps_collab_1791272196435.jpg';
+import creativeDesignSocialImg from '../assets/images/creative_design_social_1791272209918.jpg';
 
 interface ServicesProps {
   onSelectService: (serviceName: string) => void;
@@ -35,31 +35,31 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
     {
       id: 'aplicacoes-inteligentes',
       number: '02',
-      category: 'SISTEMAS COGNITIVOS',
+      category: 'ECOSSISTEMA NEXORA',
       title: 'Aplicações Inteligentes',
       description:
-        'Aplicações empresariais potencializadas por agentes de linguagem (LLMs), síntese vocal, visão computacional e bancos vetoriais sob medida.',
-      deliverable: 'Assistentes & Soluções Corporativas',
+        'Aplicações modernas alinhadas ao ecossistema Nexora: soluções com inteligência para finanças e gestão patrimonial, plataformas de relacionamento e conexões humanas, integrando pessoas reais e robôs inteligentes em total sinergia.',
+      deliverable: 'Finanças, Relacionamentos & IA Humano-Robô',
       icon: Cpu,
-      image: heroRobotImg,
-      badge: 'AI GENERATIVA',
+      image: aiAppsCollabImg,
+      badge: 'FINANÇAS & CONEXÕES',
     },
     {
-      id: 'experiencias-digitais',
+      id: 'design-criacao-logo',
       number: '03',
-      category: 'DESIGN AVANÇADO',
-      title: 'Experiências Digitais',
+      category: 'DESIGN & IDENTIDADE',
+      title: 'Design & Criação de Logo',
       description:
-        'Interfaces interativas em 3D, microssites imersivos e campanhas de produto que transformam a percepção de valor da sua marca no mercado.',
-      deliverable: 'Apresentações & UI/UX 3D',
-      icon: Sparkles,
-      image: visionFutureImg,
-      badge: 'FUTURISMO DIGITAL',
+        'Criação de logótipos profissionais para empresas, branding corporativo de impacto e artes visuais dinâmicas para redes sociais como Instagram, TikTok e Facebook que valorizam a presença digital do seu negócio.',
+      deliverable: 'Criação de Logos & Redes Sociais',
+      icon: Palette,
+      image: creativeDesignSocialImg,
+      badge: 'DESIGN DE LOGO',
     },
   ];
 
   return (
-    <section className="relative py-16 sm:py-24 z-10">
+    <section id="solucoes" className="relative py-16 sm:py-24 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -96,6 +96,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                     <img
                       src={service.image}
                       alt={service.title}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 opacity-85 group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080611] via-[#080611]/30 to-transparent" />
