@@ -106,6 +106,39 @@ class SoundSystem {
       // Ignore
     }
   }
+
+  // Pleasant notification chime for new sales / Utumify transactions
+  playChime() {
+    try {
+      this.initCtx();
+      if (!this.ctx) return;
+      const now = this.ctx.currentTime;
+      const osc1 = this.ctx.createOscillator();
+      const osc2 = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc1.type = 'sine';
+      osc2.type = 'triangle';
+      osc1.frequency.setValueAtTime(587.33, now);
+      osc1.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      osc2.frequency.setValueAtTime(880, now + 0.1);
+      osc2.frequency.exponentialRampToValueAtTime(1174.66, now + 0.25);
+
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc1.start(now);
+      osc2.start(now + 0.08);
+      osc1.stop(now + 0.5);
+      osc2.stop(now + 0.5);
+    } catch {
+      // Ignore
+    }
+  }
 }
 
 export const soundEffects = new SoundSystem();

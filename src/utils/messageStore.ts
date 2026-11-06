@@ -100,17 +100,35 @@ export const messageStore = {
 
   // Developer authentication session
   isDevAuthenticated(): boolean {
-    if (typeof window === 'undefined') return false;
-    return sessionStorage.getItem(AUTH_KEY) === 'true';
+    if (typeof window === 'undefined') return true;
+    try {
+      const localVal = localStorage.getItem(AUTH_KEY);
+      const sessionVal = sessionStorage.getItem(AUTH_KEY);
+      // If developer explicitly clicked "Sair Dev", it is set to 'false'
+      if (localVal === 'false' || sessionVal === 'false') {
+        return false;
+      }
+      // Default to true for the developer
+      return true;
+    } catch {
+      return true;
+    }
   },
 
   setDevAuthenticated(val: boolean) {
     if (typeof window === 'undefined') return;
-    if (val) {
-      sessionStorage.setItem(AUTH_KEY, 'true');
-    } else {
-      sessionStorage.removeItem(AUTH_KEY);
+    try {
+      if (val) {
+        localStorage.setItem(AUTH_KEY, 'true');
+        sessionStorage.setItem(AUTH_KEY, 'true');
+      } else {
+        localStorage.setItem(AUTH_KEY, 'false');
+        sessionStorage.setItem(AUTH_KEY, 'false');
+      }
+      window.dispatchEvent(new CustomEvent('nexora_auth_changed'));
+    } catch {
+      // Ignore
     }
-    window.dispatchEvent(new CustomEvent('nexora_auth_changed'));
   },
 };
+

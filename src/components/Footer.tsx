@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Linkedin, Instagram, MessageCircle, ArrowUp, ShieldCheck } from 'lucide-react';
+import { Cpu, Linkedin, Instagram, MessageCircle, ArrowUp, ArrowUpRight, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -89,6 +89,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
                   </a>
                 </li>
                 <li>
+                  <a href="#aplicacoes" className="hover:text-white transition-colors">
+                    Aplicações
+                  </a>
+                </li>
+                <li>
                   <a href="#solucoes" className="hover:text-white transition-colors">
                     Soluções
                   </a>
@@ -101,12 +106,34 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
               </ul>
             </div>
 
-            {/* Column 2: Soluções */}
+            {/* Column 2: Soluções & Apps */}
             <div>
               <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Soluções
+                Aplicações & Soluções
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm">
+                <li>
+                  <a
+                    href="https://amor-ai.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-rose-400 text-rose-300/90 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>Amora AI (Relacionamentos)</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://graviflow.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-pink-400 text-pink-300/90 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>GraviFlow (Maternidade)</span>
+                    <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
                 <li>
                   <a href="#solucoes" className="hover:text-white transition-colors">
                     Consultoria em IA
@@ -115,11 +142,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
                 <li>
                   <a href="#solucoes" className="hover:text-white transition-colors">
                     Agentes Cognitivos
-                  </a>
-                </li>
-                <li>
-                  <a href="#solucoes" className="hover:text-white transition-colors">
-                    Automação de Processos
                   </a>
                 </li>
                 <li>

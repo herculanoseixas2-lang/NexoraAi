@@ -57,3 +57,37 @@ export interface ClientMessage {
   };
 }
 
+export type CurrencyCode = 'AOA' | 'USD' | 'EUR' | 'BRL';
+
+export interface RevenueRecord {
+  id: string;
+  cliente: string;
+  clienteEmail?: string;
+  clienteTelefone?: string;
+  projeto: string;
+  aplicativo?: 'amora_ai' | 'graviflow' | 'nexora_core';
+  planoOuItem?: string;
+  servico: 'Amora AI' | 'GraviFlow' | 'Websites Inteligentes' | 'Aplicações com IA' | 'Design & Criação de Logo' | 'Consultoria & Suporte IA';
+  valorOriginal: number;
+  moedaOriginal: CurrencyCode;
+  custoOperacionalOriginal: number;
+  data: string;
+  status: 'aprovado' | 'concluido' | 'pendente' | 'reembolsado' | 'em_andamento';
+  metodoPagamento: 'Utumify Gateway' | 'Multicaixa Express' | 'Transferência Multicaixa' | 'Stripe / Cartão' | 'Pix' | 'Transferência Bancária Internacional';
+  origem?: 'api_webhook' | 'manual' | 'checkout_utumify';
+  notas?: string;
+}
+
+export interface FinancialSummary {
+  faturamentoBruto: Record<CurrencyCode, number>;
+  faturamentoLiquido: Record<CurrencyCode, number>;
+  custoOperacionalTotal: Record<CurrencyCode, number>;
+  margemLucroPercent: number;
+  totalTransacoes: number;
+  transacoesConcluidas: number;
+  vendasHoje: Record<CurrencyCode, number>;
+  ticketMedio: Record<CurrencyCode, number>;
+  taxaAprovacao: number;
+}
+
+

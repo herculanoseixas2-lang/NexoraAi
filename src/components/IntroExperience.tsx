@@ -1,12 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Sparkles, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, Cpu, TrendingUp } from 'lucide-react';
 import introRobotImg from '../assets/images/intro_cinematic_robot_1790155464240.jpg';
 
 interface IntroExperienceProps {
   onEnter: () => void;
+  onOpenDashboard?: () => void;
+  onOpenAdminPanel?: () => void;
 }
 
-export const IntroExperience: React.FC<IntroExperienceProps> = ({ onEnter }) => {
+export const IntroExperience: React.FC<IntroExperienceProps> = ({
+  onEnter,
+  onOpenDashboard,
+  onOpenAdminPanel,
+}) => {
   const [isActivating, setIsActivating] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -175,12 +181,42 @@ export const IntroExperience: React.FC<IntroExperienceProps> = ({ onEnter }) => 
           </div>
         </div>
 
-        <button
-          onClick={onEnter}
-          className="text-xs uppercase tracking-widest text-[#A1A1AA] hover:text-white transition-colors duration-200 py-1.5 px-3 rounded border border-white/10 hover:border-purple-500/40 bg-white/5 backdrop-blur-sm cursor-pointer"
-        >
-          Saltar introdução
-        </button>
+        <div className="flex items-center gap-2">
+          {onOpenDashboard && (
+            <button
+              onClick={() => {
+                onEnter();
+                onOpenDashboard();
+              }}
+              className="flex items-center gap-1.5 text-xs font-mono py-1.5 px-3 rounded-lg border border-emerald-500/40 bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-300 transition-colors cursor-pointer shadow-lg shadow-emerald-950/40"
+              title="Aceder ao Dashboard Financeiro"
+            >
+              <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Dashboard</span>
+            </button>
+          )}
+
+          {onOpenAdminPanel && (
+            <button
+              onClick={() => {
+                onEnter();
+                onOpenAdminPanel();
+              }}
+              className="flex items-center gap-1.5 text-xs font-mono py-1.5 px-3 rounded-lg border border-purple-500/40 bg-purple-950/70 hover:bg-purple-900/90 text-purple-300 transition-colors cursor-pointer shadow-lg shadow-purple-950/40"
+              title="Aceder ao Painel Admin"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+              <span>Admin</span>
+            </button>
+          )}
+
+          <button
+            onClick={onEnter}
+            className="text-xs uppercase tracking-widest text-[#A1A1AA] hover:text-white transition-colors duration-200 py-1.5 px-3 rounded border border-white/10 hover:border-purple-500/40 bg-white/5 backdrop-blur-sm cursor-pointer"
+          >
+            Saltar introdução
+          </button>
+        </div>
       </header>
 
       {/* Main Center Cinematic Content */}

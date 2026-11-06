@@ -18,6 +18,7 @@ import {
   Sparkles,
   ArrowRight,
   Filter,
+  TrendingUp,
 } from 'lucide-react';
 import { ClientMessage } from '../types';
 import { messageStore } from '../utils/messageStore';
@@ -26,9 +27,10 @@ import { soundEffects } from '../utils/audioEffects';
 interface AdminPanelProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenDashboard?: () => void;
 }
 
-export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
+export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose, onOpenDashboard }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => messageStore.isDevAuthenticated());
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState(false);
@@ -191,12 +193,27 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex items-center gap-2">
+            {isAuthenticated && onOpenDashboard && (
+              <button
+                onClick={() => {
+                  soundEffects.playClick();
+                  onClose();
+                  onOpenDashboard();
+                }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 text-xs font-mono text-emerald-300 hover:text-white transition-colors cursor-pointer"
+                title="Abrir Dashboard Financeiro"
+              >
+                <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="hidden sm:inline">Dashboard</span>
+              </button>
+            )}
             {isAuthenticated && (
               <button
                 onClick={handleLogout}
-                className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-mono text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-rose-500/20 hover:text-rose-300 border border-white/10 text-xs font-mono text-zinc-400 transition-colors cursor-pointer"
+                title="Sair do Modo Desenvolvedor"
               >
-                Sair
+                Sair Dev
               </button>
             )}
             <button

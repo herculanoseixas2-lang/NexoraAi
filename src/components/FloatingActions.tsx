@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, ArrowUp } from 'lucide-react';
+import { MessageCircle, ArrowUp, TrendingUp, ShieldCheck } from 'lucide-react';
 
 interface FloatingActionsProps {
   onOpenContact: () => void;
+  onOpenDashboard?: () => void;
+  onOpenAdminPanel?: () => void;
+  isDev?: boolean;
 }
 
-export const FloatingActions: React.FC<FloatingActionsProps> = () => {
+export const FloatingActions: React.FC<FloatingActionsProps> = ({
+  onOpenDashboard,
+  onOpenAdminPanel,
+  isDev = true,
+}) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -21,7 +28,38 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
   };
 
   return (
-    <aside aria-label="Ações rápidas flutuantes" className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
+    <>
+      {/* Floating Developer Quick Controls (Bottom-Left) */}
+      {isDev && (
+        <div className="fixed bottom-6 left-6 z-40 flex items-center gap-2 pointer-events-auto">
+          {onOpenDashboard && (
+            <button
+              onClick={onOpenDashboard}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#080614]/90 hover:bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 hover:text-white text-xs font-mono shadow-xl shadow-emerald-950/50 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              title="Dashboard Financeiro da Empresa"
+            >
+              <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="font-semibold">Dashboard</span>
+              <span className="text-[9px] px-1 py-0.2 bg-emerald-500/20 text-emerald-300 rounded font-mono">
+                DEV
+              </span>
+            </button>
+          )}
+
+          {onOpenAdminPanel && (
+            <button
+              onClick={onOpenAdminPanel}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#080614]/90 hover:bg-purple-950/80 border border-purple-500/40 text-purple-300 hover:text-white text-xs font-mono shadow-xl shadow-purple-950/50 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              title="Painel Admin de Mensagens"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+              <span className="font-semibold">Admin</span>
+            </button>
+          )}
+        </div>
+      )}
+
+      <aside aria-label="Ações rápidas flutuantes" className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
@@ -53,5 +91,6 @@ export const FloatingActions: React.FC<FloatingActionsProps> = () => {
         </div>
       </a>
     </aside>
+    </>
   );
 };
