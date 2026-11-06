@@ -12,7 +12,6 @@ import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { ParticleBackground } from './components/ParticleBackground';
 import { AdminPanel } from './components/AdminPanel';
-import { RevenueDashboard } from './components/RevenueDashboard';
 import { ApplicationsSection } from './components/ApplicationsSection';
 import { messageStore } from './utils/messageStore';
 
@@ -21,16 +20,13 @@ export default function App() {
   const [showIntro, setShowIntro] = useState<boolean>(() => {
     if (typeof window !== 'undefined' && (
       window.location.hash === '#admin' ||
-      window.location.hash === '#dashboard' ||
-      window.location.search.includes('admin=true') ||
-      window.location.search.includes('dashboard=true')
+      window.location.search.includes('admin=true')
     )) {
       return false;
     }
     return true;
   });
   const [isDev, setIsDev] = useState<boolean>(() => messageStore.isDevAuthenticated());
-  const [showDashboard, setShowDashboard] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [prefilledService, setPrefilledService] = useState<string | undefined>(undefined);
 
@@ -43,20 +39,12 @@ export default function App() {
     return () => window.removeEventListener('nexora_auth_changed', handleAuthChange);
   }, []);
 
-  // Keyboard shortcuts:
-  // - Ctrl+Shift+A: Developer Admin Panel
-  // - Ctrl+Shift+D: Developer Financial Revenue Dashboard
-  // URL hashes: #admin or #dashboard
+  // Keyboard shortcut Ctrl+Shift+A & URL hash #admin for developer inbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey) {
-        if (e.key === 'A' || e.key === 'a') {
-          e.preventDefault();
-          setShowAdminPanel((prev) => !prev);
-        } else if (e.key === 'D' || e.key === 'd') {
-          e.preventDefault();
-          setShowDashboard((prev) => !prev);
-        }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        setShowAdminPanel((prev) => !prev);
       }
     };
 
@@ -65,8 +53,6 @@ export default function App() {
       const search = window.location.search;
       if (hash === '#admin' || search.includes('admin=true')) {
         setShowAdminPanel(true);
-      } else if (hash === '#dashboard' || search.includes('dashboard=true')) {
-        setShowDashboard(true);
       }
     };
 
@@ -110,10 +96,6 @@ export default function App() {
             setShowIntro(false);
             window.scrollTo({ top: 0, behavior: 'instant' });
           }}
-          onOpenDashboard={() => {
-            setShowIntro(false);
-            setShowDashboard(true);
-          }}
           onOpenAdminPanel={() => {
             setShowIntro(false);
             setShowAdminPanel(true);
@@ -124,7 +106,6 @@ export default function App() {
       {/* 2. Main Website Header */}
       <Header
         isDev={isDev}
-        onOpenDashboard={() => setShowDashboard(true)}
         onOpenContact={() => handleOpenContact()}
         onReplayIntro={() => {
           window.scrollTo({ top: 0, behavior: 'instant' });
@@ -179,7 +160,6 @@ export default function App() {
       {/* 13. Floating Actions (WhatsApp & Scroll to Top + Dev Quick Dock) */}
       <FloatingActions
         isDev={isDev}
-        onOpenDashboard={() => setShowDashboard(true)}
         onOpenAdminPanel={() => setShowAdminPanel(true)}
         onOpenContact={() => handleOpenContact()}
       />
@@ -188,20 +168,6 @@ export default function App() {
       <AdminPanel
         isOpen={showAdminPanel}
         onClose={() => setShowAdminPanel(false)}
-        onOpenDashboard={() => {
-          setShowAdminPanel(false);
-          setShowDashboard(true);
-        }}
-      />
-
-      {/* 15. Developer Revenue & Financial Dashboard (Kwanza, Dólar, Euro, Real) */}
-      <RevenueDashboard
-        isOpen={showDashboard}
-        onClose={() => setShowDashboard(false)}
-        onOpenAdminPanel={() => {
-          setShowDashboard(false);
-          setShowAdminPanel(true);
-        }}
       />
     </div>
   );

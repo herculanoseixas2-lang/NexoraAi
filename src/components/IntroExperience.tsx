@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Sparkles, ArrowRight, ShieldCheck, Cpu, TrendingUp } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, Cpu } from 'lucide-react';
+import { GlowLetters } from './GlowLetters';
 import introRobotImg from '../assets/images/intro_cinematic_robot_1790155464240.jpg';
 
 interface IntroExperienceProps {
   onEnter: () => void;
-  onOpenDashboard?: () => void;
   onOpenAdminPanel?: () => void;
 }
 
 export const IntroExperience: React.FC<IntroExperienceProps> = ({
   onEnter,
-  onOpenDashboard,
   onOpenAdminPanel,
 }) => {
   const [isActivating, setIsActivating] = useState(false);
@@ -182,20 +181,6 @@ export const IntroExperience: React.FC<IntroExperienceProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          {onOpenDashboard && (
-            <button
-              onClick={() => {
-                onEnter();
-                onOpenDashboard();
-              }}
-              className="flex items-center gap-1.5 text-xs font-mono py-1.5 px-3 rounded-lg border border-emerald-500/40 bg-emerald-950/70 hover:bg-emerald-900/90 text-emerald-300 transition-colors cursor-pointer shadow-lg shadow-emerald-950/40"
-              title="Aceder ao Dashboard Financeiro"
-            >
-              <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Dashboard</span>
-            </button>
-          )}
-
           {onOpenAdminPanel && (
             <button
               onClick={() => {
@@ -227,20 +212,23 @@ export const IntroExperience: React.FC<IntroExperienceProps> = ({
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38BDF8] opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38BDF8]" />
           </span>
-          <span>SISTEMA DE INTELIGÊNCIA ARTIFICIAL ONLINE</span>
+          <GlowLetters text="SISTEMA DE INTELIGÊNCIA ARTIFICIAL ONLINE" glowColor="cyan" />
         </div>
 
-        {/* Brand Headline */}
+        {/* Brand Headline with Interactive GlowLetters */}
         <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4 leading-none">
-          NEXORA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#38BDF8] to-[#7C3AED]">AI</span>
+          <GlowLetters text="NEXORA" glowColor="purple" />{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#38BDF8] to-[#7C3AED]">
+            <GlowLetters text="AI" glowColor="cyan" />
+          </span>
         </h1>
 
-        <p className="font-display text-lg sm:text-2xl font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E5E7EB] to-[#A1A1AA] mb-4">
-          INTELIGÊNCIA QUE TRANSFORMA.
+        <p className="font-display text-lg sm:text-2xl font-bold tracking-widest uppercase mb-4">
+          <GlowLetters text="INTELIGÊNCIA QUE TRANSFORMA." glowColor="purple" />
         </p>
 
         <p className="text-sm sm:text-base text-[#D1D5DB] max-w-xl mb-10 leading-relaxed font-light">
-          Consultoria, tecnologia e soluções de inteligência artificial para negócios preparados para o futuro.
+          <GlowLetters text="Consultoria, tecnologia e soluções de inteligência artificial para negócios preparados para o futuro." glowColor="white" />
         </p>
 
         {/* Main CTA Trigger Button */}

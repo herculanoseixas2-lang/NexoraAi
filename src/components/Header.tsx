@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, Menu, X, ArrowUpRight, Sparkles, ShieldCheck, TrendingUp } from 'lucide-react';
+import { Cpu, Menu, X, ArrowUpRight, Sparkles, ShieldCheck } from 'lucide-react';
 import { GlowLetters } from './GlowLetters';
 import { FloatingButton } from './FloatingButton';
 
@@ -7,7 +7,6 @@ interface HeaderProps {
   onOpenContact: () => void;
   onReplayIntro: () => void;
   onOpenAdminPanel: () => void;
-  onOpenDashboard?: () => void;
   isDev?: boolean;
 }
 
@@ -15,7 +14,6 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenContact,
   onReplayIntro,
   onOpenAdminPanel,
-  onOpenDashboard,
   isDev = false,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,39 +63,15 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </a>
 
-          {/* Navigation Links - Center */}
+          {/* Navigation Links - Center with interactive GlowLetters */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs lg:text-sm font-medium text-[#D1D5DB]">
-            <a
-              href="#inicio"
-              className="relative py-1 hover:text-white transition-colors duration-200 group"
-            >
-              <span>Início</span>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#8B5CF6] to-[#38BDF8] transition-all duration-200 group-hover:w-full" />
-            </a>
-
-            {/* Developer-only Dashboard Tab beside Início */}
-            {isDev && (
-              <button
-                onClick={onOpenDashboard}
-                className="relative py-1 flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors duration-200 group cursor-pointer font-medium"
-                title="Dashboard Financeiro da Empresa (Receita Bruta, Líquida e Moedas)"
-              >
-                <TrendingUp className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span>Dashboard</span>
-                <span className="inline-flex items-center px-1.5 py-0.2 text-[9px] font-mono font-bold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-                  DEV
-                </span>
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-teal-300" />
-              </button>
-            )}
-
-            {navLinks.filter((l) => l.href !== '#inicio').map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 className="relative py-1 hover:text-white transition-colors duration-200 group"
               >
-                <span>{link.label}</span>
+                <GlowLetters text={link.label} glowColor="cyan" />
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#8B5CF6] to-[#38BDF8] transition-all duration-200 group-hover:w-full" />
               </a>
             ))}
@@ -161,41 +135,14 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Mobile dropdown navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-3 pt-3 border-t border-white/10 flex flex-col gap-2 pb-2">
-            <a
-              href="#inicio"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 text-sm text-[#D1D5DB] hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              Início
-            </a>
-
-            {/* Mobile Developer Dashboard Option */}
-            {isDev && (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenDashboard?.();
-                }}
-                className="flex items-center justify-between px-3 py-2 text-sm text-emerald-300 hover:text-white hover:bg-emerald-950/30 rounded-lg transition-colors text-left cursor-pointer border border-emerald-500/20 font-medium"
-              >
-                <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
-                  <span>Dashboard Financeiro</span>
-                </div>
-                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
-                  DEV
-                </span>
-              </button>
-            )}
-
-            {navLinks.filter((l) => l.href !== '#inicio').map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 text-sm text-[#D1D5DB] hover:text-white hover:bg-white/5 rounded-lg transition-colors"
               >
-                {link.label}
+                <GlowLetters text={link.label} glowColor="cyan" />
               </a>
             ))}
 

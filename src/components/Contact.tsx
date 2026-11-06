@@ -94,7 +94,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, onOpenAdminP
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151332]/80 border border-purple-500/30 text-xs font-mono text-[#38BDF8] tracking-widest uppercase mb-3">
-            ATENDIMENTO EXCLUSIVO
+            <GlowLetters text="ATENDIMENTO EXCLUSIVO" glowColor="cyan" />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             <GlowLetters text="Vamos" glowColor="purple" />{' '}
@@ -103,7 +103,10 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, onOpenAdminP
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] mt-3">
-            Explique o seu desafio ou projeto e receba uma avaliação preliminar de viabilidade e arquitetura em até 24 horas úteis.
+            <GlowLetters
+              text="Explique o seu desafio ou projeto e receba uma avaliação preliminar de viabilidade e arquitetura em até 24 horas úteis."
+              glowColor="purple"
+            />
           </p>
         </div>
 
@@ -112,7 +115,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, onOpenAdminP
           <div className="lg:col-span-5 flex flex-col gap-5">
             <div className="rounded-2xl bg-gradient-to-b from-[#111027] to-[#080611] border border-purple-500/25 p-6 backdrop-blur-xl shadow-xl">
               <h3 className="font-display font-bold text-xl text-white mb-2">
-                Canais Diretos de Comunicação
+                <GlowLetters text="Canais Diretos de Comunicação" glowColor="purple" />
               </h3>
               <p className="text-xs sm:text-sm text-[#9CA3AF] mb-6">
                 Fale diretamente com os nossos engenheiros e especialistas em inteligência artificial.
@@ -226,7 +229,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, onOpenAdminP
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="font-display text-2xl font-bold text-white mb-2">
-                    Mensagem Recebida com Sucesso!
+                    <GlowLetters text="Mensagem Recebida com Sucesso!" glowColor="emerald" />
                   </h3>
                   <p className="text-sm text-[#D1D5DB] max-w-md mb-2 leading-relaxed">
                     Obrigado pelo seu contacto, <strong className="text-white">{formData.nome}</strong>. A mensagem foi transmitida diretamente para o nosso painel de engenharia.

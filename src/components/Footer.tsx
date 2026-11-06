@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cpu, Linkedin, Instagram, MessageCircle, ArrowUp, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { GlowLetters } from './GlowLetters';
 
 interface FooterProps {
   onOpenContact: () => void;
@@ -25,16 +26,22 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
                 </div>
               </div>
               <span className="font-display font-bold text-xl tracking-tight text-white">
-                NEXORA <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#38BDF8]">AI</span>
+                <GlowLetters text="NEXORA" glowColor="white" />{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#38BDF8]">
+                  <GlowLetters text="AI" glowColor="cyan" />
+                </span>
               </span>
             </a>
 
             <div className="text-xs font-mono font-semibold text-[#A78BFA] uppercase tracking-wider mb-2">
-              Inteligência que transforma.
+              <GlowLetters text="Inteligência que transforma." glowColor="purple" />
             </div>
 
             <p className="text-xs sm:text-sm text-[#9CA3AF] max-w-sm leading-relaxed mb-6">
-              Consultoria, tecnologia e soluções de inteligência artificial para negócios preparados para o futuro em Angola e no mercado internacional.
+              <GlowLetters
+                text="Consultoria, tecnologia e soluções de inteligência artificial para negócios preparados para o futuro em Angola e no mercado internacional."
+                glowColor="purple"
+              />
             </p>
 
             {/* Social Icons */}
@@ -80,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
             {/* Column 1: Empresa */}
             <div>
               <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Empresa
+                <GlowLetters text="Empresa" glowColor="cyan" />
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li>
@@ -109,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
             {/* Column 2: Soluções & Apps */}
             <div>
               <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Aplicações & Soluções
+                <GlowLetters text="Aplicações & Soluções" glowColor="rose" />
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li>
@@ -155,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, onReplayIntro, on
             {/* Column 3: Recursos & Suporte */}
             <div>
               <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider mb-4">
-                Recursos
+                <GlowLetters text="Recursos" glowColor="emerald" />
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm">
                 <li>

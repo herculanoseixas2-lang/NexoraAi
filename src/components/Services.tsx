@@ -64,7 +64,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151332]/90 border border-purple-500/30 text-xs font-mono text-[#38BDF8] tracking-widest uppercase mb-3 backdrop-blur-md">
-            PORTFÓLIO DE COMPETÊNCIAS
+            <GlowLetters text="PORTFÓLIO DE COMPETÊNCIAS" glowColor="cyan" />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             <GlowLetters text="O que podemos" glowColor="purple" />{' '}
@@ -73,7 +73,10 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] mt-3">
-            Combinamos inteligência artificial, design futurista e engenharia de software para resolver desafios complexos.
+            <GlowLetters
+              text="Combinamos inteligência artificial, design futurista e engenharia de software para resolver desafios complexos."
+              glowColor="purple"
+            />
           </p>
         </div>
 

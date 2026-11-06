@@ -188,3 +188,55 @@
   animation: fadeIn 0.4s ease-out forwards;
 }
 
+/* Universal interactive letter-hover animation (animação ao passar nas letras) */
+.glow-letter {
+  display: inline-block;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.18s ease, color 0.18s ease;
+  will-change: transform, text-shadow, color;
+  cursor: default;
+}
+
+.glow-letter:hover,
+.glow-letter:active {
+  transform: translateY(-3.5px) scale(1.12);
+  z-index: 20;
+  position: relative;
+}
+
+.glow-letter-purple:hover,
+.glow-letter-purple:active {
+  color: #F5F3FF !important;
+  text-shadow: 0 0 14px rgba(192, 132, 252, 0.95), 0 0 28px rgba(147, 51, 234, 0.85) !important;
+}
+
+.glow-letter-cyan:hover,
+.glow-letter-cyan:active {
+  color: #E0F2FE !important;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.95), 0 0 28px rgba(14, 165, 233, 0.85) !important;
+}
+
+.glow-letter-rose:hover,
+.glow-letter-rose:active {
+  color: #FFE4E6 !important;
+  text-shadow: 0 0 14px rgba(244, 63, 94, 0.95), 0 0 28px rgba(225, 29, 72, 0.85) !important;
+}
+
+.glow-letter-emerald:hover,
+.glow-letter-emerald:active {
+  color: #D1FAE5 !important;
+  text-shadow: 0 0 14px rgba(52, 211, 153, 0.95), 0 0 28px rgba(16, 185, 129, 0.85) !important;
+}
+
+.glow-letter-white:hover,
+.glow-letter-white:active {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.95), 0 0 26px rgba(192, 132, 252, 0.75) !important;
+}
+
+.glow-letter-amber:hover,
+.glow-letter-amber:active {
+  color: #FEF3C7 !important;
+  text-shadow: 0 0 14px rgba(251, 191, 36, 0.95), 0 0 28px rgba(245, 158, 11, 0.85) !important;
+}
+
+

@@ -25,7 +25,7 @@ export const CTA: React.FC<CTAProps> = ({ onOpenContact, onExploreSolutions }) =
             {/* Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-[#E9D5FF] tracking-widest uppercase mb-6 backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
-              INICIE A SUA JORNADA HOJE
+              <GlowLetters text="INICIE A SUA JORNADA HOJE" glowColor="cyan" />
             </div>
 
             {/* Heading with letter glow and float */}
@@ -38,7 +38,10 @@ export const CTA: React.FC<CTAProps> = ({ onOpenContact, onExploreSolutions }) =
 
             {/* Subtext */}
             <p className="text-sm sm:text-lg text-purple-100/90 max-w-xl leading-relaxed mb-10">
-              Tem uma ideia, um problema ou um processo que pode ser melhorado com tecnologia? A nossa equipe de engenheiros e consultores de IA está pronta para colaborar.
+              <GlowLetters
+                text="Tem uma ideia, um problema ou um processo que pode ser melhorado com tecnologia? A nossa equipe de engenheiros e consultores de IA está pronta para colaborar."
+                glowColor="purple"
+              />
             </p>
 
             {/* Dual Floating Buttons */}

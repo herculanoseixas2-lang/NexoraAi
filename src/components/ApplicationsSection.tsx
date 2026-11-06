@@ -19,6 +19,7 @@ import {
   Activity,
   Award,
 } from 'lucide-react';
+import { GlowLetters } from './GlowLetters';
 import amoraCover from '../assets/images/amora_ai_app_cover_1793977009334.jpg';
 import graviFlowCover from '../assets/images/graviflow_app_cover_1793977010415.jpg';
 
@@ -171,18 +172,21 @@ export const ApplicationsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 text-xs font-mono font-semibold text-purple-300 uppercase tracking-widest mb-4 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>ECOSSISTEMA DE PRODUTOS • NEXORA AI</span>
+            <GlowLetters text="ECOSSISTEMA DE PRODUTOS • NEXORA AI" glowColor="cyan" />
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-5">
-            Aplicações Desenvolvidas pela{' '}
+            <GlowLetters text="Aplicações Desenvolvidas pela" glowColor="purple" />{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#38BDF8]">
-              Nexora
+              <GlowLetters text="Nexora" glowColor="rose" />
             </span>
           </h2>
 
           <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-light">
-            Conheça as nossas plataformas digitais proprietárias. Soluções inovadoras criadas para impactar positivamente a vida real, desde o equilíbrio emocional nos relacionamentos até ao carinho na maternidade.
+            <GlowLetters
+              text="Conheça as nossas plataformas digitais proprietárias. Soluções inovadoras criadas para impactar positivamente a vida real, desde o equilíbrio emocional nos relacionamentos até ao carinho na maternidade."
+              glowColor="purple"
+            />
           </p>
         </div>
 
@@ -223,10 +227,10 @@ export const ApplicationsSection: React.FC = () => {
                 {/* Bottom App Title Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
                   <div className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400 mb-1">
-                    {app.category}
+                    <GlowLetters text={app.category} glowColor="cyan" />
                   </div>
                   <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white flex items-center gap-2">
-                    {app.name}
+                    <GlowLetters text={app.name} glowColor={app.id === 'amora' ? 'rose' : 'cyan'} />
                   </h3>
                 </div>
               </div>
@@ -236,19 +240,19 @@ export const ApplicationsSection: React.FC = () => {
                 <div>
                   {/* Tagline */}
                   <div className="text-sm sm:text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400 mb-3">
-                    {app.tagline}
+                    <GlowLetters text={app.tagline} glowColor="white" />
                   </div>
 
                   {/* Description */}
                   <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6 font-light">
-                    {app.shortDescription}
+                    <GlowLetters text={app.shortDescription} glowColor="purple" />
                   </p>
 
                   {/* Feature Highlights Grid */}
                   <div className="mb-6">
                     <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-300 mb-3 flex items-center gap-1.5">
                       <Sparkles className="w-3 h-3 text-purple-400" />
-                      <span>Principais Funcionalidades</span>
+                      <GlowLetters text="Principais Funcionalidades" glowColor="cyan" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -262,10 +266,10 @@ export const ApplicationsSection: React.FC = () => {
                           </div>
                           <div>
                             <div className="text-xs font-semibold text-zinc-200">
-                              {feat.title}
+                              <GlowLetters text={feat.title} glowColor="white" />
                             </div>
                             <div className="text-[11px] text-zinc-400 line-clamp-1">
-                              {feat.desc}
+                              <GlowLetters text={feat.desc} glowColor="purple" />
                             </div>
                           </div>
                         </div>

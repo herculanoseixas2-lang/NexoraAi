@@ -47,7 +47,7 @@ export const WebsiteShowcase: React.FC<WebsiteShowcaseProps> = ({ onStartWebProj
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151332]/80 border border-purple-500/30 text-xs font-mono text-[#38BDF8] tracking-widest uppercase mb-3">
-            ENGENHARIA WEB & EXPERIÊNCIAS IMERSIVAS
+            <GlowLetters text="ENGENHARIA WEB & EXPERIÊNCIAS IMERSIVAS" glowColor="cyan" />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight text-center">
             <GlowLetters text="Websites que não parecem" glowColor="purple" />{' '}
@@ -56,7 +56,10 @@ export const WebsiteShowcase: React.FC<WebsiteShowcaseProps> = ({ onStartWebProj
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] mt-3 leading-relaxed">
-            Criamos experiências digitais modernas, interativas e pensadas para destacar marcas com velocidade de elite e inteligência embutida.
+            <GlowLetters
+              text="Criamos experiências digitais modernas, interativas e pensadas para destacar marcas com velocidade de elite e inteligência embutida."
+              glowColor="purple"
+            />
           </p>
         </div>
 
@@ -139,28 +142,28 @@ export const WebsiteShowcase: React.FC<WebsiteShowcaseProps> = ({ onStartWebProj
             <div className="absolute top-6 left-6 z-20 animate-float">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#080611]/90 border border-purple-500/40 text-xs font-mono font-semibold text-white backdrop-blur-md shadow-lg shadow-purple-950/40">
                 <Layers className="w-3.5 h-3.5 text-[#8B5CF6]" />
-                <span>UI/UX DESIGN</span>
+                <GlowLetters text="UI/UX DESIGN" glowColor="purple" />
               </div>
             </div>
 
             <div className="absolute top-6 right-6 z-20 animate-float [animation-delay:1s]">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#080611]/90 border border-blue-500/40 text-xs font-mono font-semibold text-white backdrop-blur-md shadow-lg shadow-blue-950/40">
                 <Smartphone className="w-3.5 h-3.5 text-[#38BDF8]" />
-                <span>100% RESPONSIVO</span>
+                <GlowLetters text="100% RESPONSIVO" glowColor="cyan" />
               </div>
             </div>
 
             <div className="absolute bottom-20 left-6 z-20 animate-float [animation-delay:2s] hidden sm:block">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#080611]/90 border border-emerald-500/40 text-xs font-mono font-semibold text-white backdrop-blur-md shadow-lg">
                 <Zap className="w-3.5 h-3.5 text-emerald-400" />
-                <span>PERFORMANCE 99/100</span>
+                <GlowLetters text="PERFORMANCE 99/100" glowColor="emerald" />
               </div>
             </div>
 
             <div className="absolute bottom-20 right-6 z-20 animate-float [animation-delay:1.5s] hidden sm:block">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#080611]/90 border border-[#8B5CF6]/50 text-xs font-mono font-semibold text-white backdrop-blur-md shadow-lg">
                 <Sparkles className="w-3.5 h-3.5 text-[#A78BFA]" />
-                <span>IA INTEGRADA NATIVA</span>
+                <GlowLetters text="IA INTEGRADA NATIVA" glowColor="purple" />
               </div>
             </div>
 
@@ -169,13 +172,16 @@ export const WebsiteShowcase: React.FC<WebsiteShowcaseProps> = ({ onStartWebProj
               {activeView === 'preview' && (
                 <>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111027]/90 border border-purple-500/30 text-xs text-[#38BDF8] font-mono uppercase mb-4">
-                    ESTÉTICA DE ALTA FIDELIDADE
+                    <GlowLetters text="ESTÉTICA DE ALTA FIDELIDADE" glowColor="cyan" />
                   </div>
                   <h3 className="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                    Interfaces que cativam no primeiro segundo.
+                    <GlowLetters text="Interfaces que cativam no primeiro segundo." glowColor="purple" />
                   </h3>
                   <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed mb-6">
-                    Esqueça modelos pré-fabricados ou designs lentos. Criamos plataformas desenvolvidas sob medida com Tailwind CSS, animações a 60fps e arquitetura pronta para milhões de acessos.
+                    <GlowLetters
+                      text="Esqueça modelos pré-fabricados ou designs lentos. Criamos plataformas desenvolvidas sob medida com Tailwind CSS, animações a 60fps e arquitetura pronta para milhões de acessos."
+                      glowColor="purple"
+                    />
                   </p>
                   <button
                     onClick={onStartWebProject}

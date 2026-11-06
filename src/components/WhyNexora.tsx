@@ -48,7 +48,7 @@ export const WhyNexora: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#151332]/80 border border-purple-500/30 text-xs font-mono text-[#38BDF8] tracking-widest uppercase mb-3">
-            DIFERENCIAIS ESTRATÉGICOS
+            <GlowLetters text="DIFERENCIAIS ESTRATÉGICOS" glowColor="cyan" />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             <GlowLetters text="Por que" glowColor="purple" />{' '}
@@ -57,7 +57,10 @@ export const WhyNexora: React.FC = () => {
             </span>
           </h2>
           <p className="text-sm sm:text-base text-[#9CA3AF] mt-3">
-            Mais do que uma agência de desenvolvimento, somos o parceiro de tecnologia e inteligência artificial para o crescimento contínuo do seu negócio.
+            <GlowLetters
+              text="Mais do que uma agência de desenvolvimento, somos o parceiro de tecnologia e inteligência artificial para o crescimento contínuo do seu negócio."
+              glowColor="purple"
+            />
           </p>
         </div>
 
@@ -73,7 +76,7 @@ export const WhyNexora: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[10px] font-mono text-[#38BDF8] uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10">
-                      {item.tag}
+                      <GlowLetters text={item.tag} glowColor="cyan" />
                     </span>
                     <span className="text-xs font-mono text-[#71717A]">
                       0{idx + 1}
@@ -85,15 +88,15 @@ export const WhyNexora: React.FC = () => {
                   </div>
 
                   <h3 className="font-display font-bold text-lg text-white mb-2 tracking-wide">
-                    {item.title}
+                    <GlowLetters text={item.title} glowColor="purple" />
                   </h3>
 
                   <div className="text-xs font-semibold text-[#A78BFA] mb-3">
-                    {item.subtitle}
+                    <GlowLetters text={item.subtitle} glowColor="cyan" />
                   </div>
 
                   <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
-                    {item.description}
+                    <GlowLetters text={item.description} glowColor="purple" />
                   </p>
                 </div>
 

@@ -81,11 +81,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSolutions, onContact }) => 
       <div className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-8 mb-4 flex items-center justify-between text-[11px] font-mono text-zinc-500">
         <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D0B1C]/80 border border-purple-500/20 text-zinc-400 backdrop-blur-md">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span>SISTEMA ATIVO</span>
+          <GlowLetters text="SISTEMA ATIVO" glowColor="emerald" />
           <span className="text-zinc-600">•</span>
-          <span className="text-purple-300">NÚCLEO NEURAL 4.9</span>
+          <GlowLetters text="NÚCLEO NEURAL 4.9" glowColor="purple" />
           <span className="text-zinc-600">•</span>
-          <span>LATÊNCIA 1.2ms</span>
+          <GlowLetters text="LATÊNCIA 1.2ms" glowColor="cyan" />
         </div>
 
         {/* Audio feedback toggle */}
@@ -162,15 +162,21 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSolutions, onContact }) => 
             <div className="grid grid-cols-3 gap-3 w-full max-w-md pt-5 border-t border-purple-500/20 text-xs">
               <div>
                 <div className="font-display font-bold text-white text-base sm:text-lg">99.98%</div>
-                <div className="text-[11px] font-mono text-zinc-400">Precisão Neural</div>
+                <div className="text-[11px] font-mono text-zinc-400">
+                  <GlowLetters text="Precisão Neural" glowColor="purple" />
+                </div>
               </div>
               <div>
                 <div className="font-display font-bold text-white text-base sm:text-lg">&lt; 15ms</div>
-                <div className="text-[11px] font-mono text-zinc-400">Tempo de Resposta</div>
+                <div className="text-[11px] font-mono text-zinc-400">
+                  <GlowLetters text="Tempo de Resposta" glowColor="cyan" />
+                </div>
               </div>
               <div>
                 <div className="font-display font-bold text-purple-300 text-base sm:text-lg">Zero Trust</div>
-                <div className="text-[11px] font-mono text-zinc-400">Arquitetura Segura</div>
+                <div className="text-[11px] font-mono text-zinc-400">
+                  <GlowLetters text="Arquitetura Segura" glowColor="purple" />
+                </div>
               </div>
             </div>
           </div>
